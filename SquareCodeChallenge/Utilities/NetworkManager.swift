@@ -10,11 +10,11 @@ import Foundation
 class NetworkManager {
     static let shared = NetworkManager()
     
-    private let employeeURL = URL(string: "https://s3.amazonaws.com/sq-mobile-interview/employees.json")!
+    private let employeeURL = URL(string: ApiUrl.shared.employeeListAPI)!
     
     private init() {}
     
-    func fetchEmployees(completion: @escaping (Result<[Employee], Error>) -> Void) {
+    func getEmployees(completion: @escaping (Result<[Employee], Error>) -> Void) {
         URLSession.shared.dataTask(with: employeeURL) { data, _, error in
             if let error = error {
                 completion(.failure(error))

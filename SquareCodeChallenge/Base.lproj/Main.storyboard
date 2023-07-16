@@ -21,6 +21,15 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fvB-7F-VcY">
+                                <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorry! No data to display" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09m-wo-T88">
+                                <rect key="frame" x="83.666666666666671" y="414" width="225.66666666666663" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jmA-s4-TMu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -28,10 +37,16 @@
                             <constraint firstItem="Kyd-3y-Sem" firstAttribute="leading" secondItem="jmA-s4-TMu" secondAttribute="leading" id="Hka-kH-XWv"/>
                             <constraint firstItem="jmA-s4-TMu" firstAttribute="bottom" secondItem="Kyd-3y-Sem" secondAttribute="bottom" id="LIY-Un-22v"/>
                             <constraint firstItem="jmA-s4-TMu" firstAttribute="trailing" secondItem="Kyd-3y-Sem" secondAttribute="trailing" id="Lxg-Hm-0AF"/>
+                            <constraint firstItem="fvB-7F-VcY" firstAttribute="centerY" secondItem="Cnb-1w-w30" secondAttribute="centerY" id="TbX-OU-gF1"/>
+                            <constraint firstItem="09m-wo-T88" firstAttribute="centerY" secondItem="Cnb-1w-w30" secondAttribute="centerY" id="adE-1t-xX7"/>
+                            <constraint firstItem="fvB-7F-VcY" firstAttribute="centerX" secondItem="Cnb-1w-w30" secondAttribute="centerX" id="fMp-Eq-hNB"/>
                             <constraint firstItem="Kyd-3y-Sem" firstAttribute="top" secondItem="jmA-s4-TMu" secondAttribute="top" id="hro-zb-Ch8"/>
+                            <constraint firstItem="09m-wo-T88" firstAttribute="centerX" secondItem="Cnb-1w-w30" secondAttribute="centerX" id="l1T-ql-89R"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="fvB-7F-VcY" id="A66-1j-Te4"/>
+                        <outlet property="emptyStateLabel" destination="09m-wo-T88" id="yKh-hz-xH8"/>
                         <outlet property="tableView" destination="Kyd-3y-Sem" id="MwS-AE-R5e"/>
                     </connections>
                 </viewController>

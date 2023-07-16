@@ -10,37 +10,100 @@ import UIKit
 class EmployeeDirectoryViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
-    private var employeeCell = "EmployeeTableViewCell"
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var emptyStateLabel: UILabel!
     
+    private var employeeCell = "EmployeeTableViewCell"
     private var employees: [Employee] = []
+    private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.dataSource = self
-        self.tableView.delegate = self
-        self.tableView.register(UINib(nibName: employeeCell, bundle: nil), forCellReuseIdentifier: employeeCell)
-        
+       setupTableview()
+        setupRefreshControl()
         reloadEmployees()
     }
     
+    func setupTableview(){
+        self.tableView.dataSource = self
+        self.tableView.delegate = self
+        self.tableView.register(UINib(nibName: employeeCell, bundle: nil), forCellReuseIdentifier: employeeCell)
+    }
+    
     private func reloadEmployees() {
-        //      Loading
-        NetworkManager.shared.fetchEmployees { [weak self] result in
+        showLoadingState()
+        
+        NetworkManager.shared.getEmployees { [weak self] result in
             guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                self.refreshControl.endRefreshing()
+            }
             
             switch result {
             case .success(let employees):
                 self.employees = employees
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    self.showEmptyStateIfNeeded()
+                    self.hideLoadingState()
                 }
-                // Show empty and hide loading
-                
+           
             case .failure(let error):
-                print("Error:", error)
-                // show error and hide loading
+                if error as? NetworkError == NetworkError.noData{
+                    self.showEmptyStateIfNeeded()
+                } else {
+                    self.showErrorState(with: error.localizedDescription)
+                }
+                self.hideLoadingState()
             }
         }
+    }
+    
+    private func setupRefreshControl() {
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshEmployees), for: .valueChanged)
+    }
+    
+    @objc private func refreshEmployees() {
+        reloadEmployees()
+    }
+    
+    private func showLoadingState() {
+        activityIndicator.startAnimating()
+        activityIndicator.isHidden = false
+        tableView.isHidden = true
+        emptyStateLabel.isHidden = true
+    }
+    
+    private func hideLoadingState() {
+        activityIndicator.stopAnimating()
+        activityIndicator.isHidden = true
+        tableView.isHidden = false
+    }
+    
+    private func showEmptyStateIfNeeded() {
+        emptyStateLabel.isHidden = !employees.isEmpty
+        tableView.isHidden = true
+    }
+    
+    private func showErrorState(with message: String) {
+        let alertController = UIAlertController(
+            title: "Error",
+            message: message,
+            preferredStyle: .alert
+        )
+        
+        alertController.addAction(UIAlertAction(title: "OK", style: .default))
+        
+        present(alertController, animated: true)
+    }
+        
+    @objc func phoneButtonClicked(_ sender: AnyObject){
+        guard let phoneNumber = employees[sender.tag].phoneNumber else {return}
+        
+        guard let number = URL(string: "tel://" + phoneNumber) else { return }
+        UIApplication.shared.open(number)
     }
 }
 
@@ -58,7 +121,10 @@ extension EmployeeDirectoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: employeeCell, for: indexPath) as! EmployeeTableViewCell
         let employee = employees[indexPath.item]
+        cell.selectionStyle = .none
         cell.configure(with: employee)
+        cell.phoneButton.tag = indexPath.row
+        cell.phoneButton.addTarget(self, action: #selector(phoneButtonClicked(_:)), for: .touchUpInside)
         return cell
     }
 }

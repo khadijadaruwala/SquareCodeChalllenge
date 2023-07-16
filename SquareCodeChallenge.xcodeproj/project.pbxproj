@@ -19,6 +19,7 @@
 		8E4ED7422A643F7200081D7E /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4ED7412A643F7200081D7E /* ImageCacheManager.swift */; };
 		8E4ED7452A6447F900081D7E /* EmployeeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4ED7432A6447F900081D7E /* EmployeeTableViewCell.swift */; };
 		8E4ED7462A6447F900081D7E /* EmployeeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E4ED7442A6447F900081D7E /* EmployeeTableViewCell.xib */; };
+		8E4ED74A2A64B96B00081D7E /* ApiUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4ED7492A64B96B00081D7E /* ApiUrl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8E4ED7412A643F7200081D7E /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		8E4ED7432A6447F900081D7E /* EmployeeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeTableViewCell.swift; sourceTree = "<group>"; };
 		8E4ED7442A6447F900081D7E /* EmployeeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmployeeTableViewCell.xib; sourceTree = "<group>"; };
+		8E4ED7492A64B96B00081D7E /* ApiUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUrl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			children = (
 				8E4ED73F2A643DD600081D7E /* NetworkManager.swift */,
 				8E4ED7412A643F7200081D7E /* ImageCacheManager.swift */,
+				8E4ED7492A64B96B00081D7E /* ApiUrl.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				8E4ED7452A6447F900081D7E /* EmployeeTableViewCell.swift in Sources */,
 				8E4ED7382A638DFF00081D7E /* EmployeeDirectoryViewController.swift in Sources */,
 				8E4ED71F2A638B8800081D7E /* SceneDelegate.swift in Sources */,
+				8E4ED74A2A64B96B00081D7E /* ApiUrl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

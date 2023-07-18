@@ -30,7 +30,7 @@ class EmployeeDirectoryViewController: UIViewController {
         self.tableView.register(UINib(nibName: employeeCell, bundle: nil), forCellReuseIdentifier: employeeCell)
     }
     
-    private func reloadEmployees() {
+    func reloadEmployees() {
         showLoadingState()
         
         NetworkManager.shared.getEmployees { [weak self] result in

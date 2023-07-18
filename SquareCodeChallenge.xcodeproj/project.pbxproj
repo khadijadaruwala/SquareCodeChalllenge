@@ -22,6 +22,7 @@
 		8E4ED74A2A64B96B00081D7E /* ApiUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4ED7492A64B96B00081D7E /* ApiUrl.swift */; };
 		8E4ED7542A64BAEC00081D7E /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4ED7532A64BAEC00081D7E /* NetworkManagerTests.swift */; };
 		8E4ED75B2A67566B00081D7E /* ImageCacheManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4ED75A2A67566B00081D7E /* ImageCacheManagerTests.swift */; };
+		8E4ED75D2A675C3000081D7E /* EmployeeDirectoryViewContollerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4ED75C2A675C3000081D7E /* EmployeeDirectoryViewContollerTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		8E4ED7512A64BAEC00081D7E /* SquareCodeChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SquareCodeChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E4ED7532A64BAEC00081D7E /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		8E4ED75A2A67566B00081D7E /* ImageCacheManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManagerTests.swift; sourceTree = "<group>"; };
+		8E4ED75C2A675C3000081D7E /* EmployeeDirectoryViewContollerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDirectoryViewContollerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +151,7 @@
 			children = (
 				8E4ED7532A64BAEC00081D7E /* NetworkManagerTests.swift */,
 				8E4ED75A2A67566B00081D7E /* ImageCacheManagerTests.swift */,
+				8E4ED75C2A675C3000081D7E /* EmployeeDirectoryViewContollerTests.swift */,
 			);
 			path = SquareCodeChallengeTests;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 			files = (
 				8E4ED75B2A67566B00081D7E /* ImageCacheManagerTests.swift in Sources */,
 				8E4ED7542A64BAEC00081D7E /* NetworkManagerTests.swift in Sources */,
+				8E4ED75D2A675C3000081D7E /* EmployeeDirectoryViewContollerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

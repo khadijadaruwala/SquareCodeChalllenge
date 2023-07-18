@@ -12,7 +12,7 @@
         <!--Employee Directory View Controller-->
         <scene sceneID="qyt-OE-p0H">
             <objects>
-                <viewController id="WfP-2B-5eo" customClass="EmployeeDirectoryViewController" customModule="SquareCodeChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EmployeeDirectoryViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WfP-2B-5eo" customClass="EmployeeDirectoryViewController" customModule="SquareCodeChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Cnb-1w-w30">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

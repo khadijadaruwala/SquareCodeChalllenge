@@ -14,12 +14,12 @@ class EmployeeDirectoryViewController: UIViewController {
     @IBOutlet weak var emptyStateLabel: UILabel!
     
     private var employeeCell = "EmployeeTableViewCell"
-    private var employees: [Employee] = []
+    var employees: [Employee] = []
     private let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       setupTableview()
+        setupTableview()
         setupRefreshControl()
         reloadEmployees()
     }
@@ -48,7 +48,7 @@ class EmployeeDirectoryViewController: UIViewController {
                     self.showEmptyStateIfNeeded()
                     self.hideLoadingState()
                 }
-           
+                
             case .failure(let error):
                 if error as? NetworkError == NetworkError.noData{
                     self.showEmptyStateIfNeeded()
@@ -69,25 +69,25 @@ class EmployeeDirectoryViewController: UIViewController {
         reloadEmployees()
     }
     
-    private func showLoadingState() {
+    func showLoadingState() {
         activityIndicator.startAnimating()
         activityIndicator.isHidden = false
         tableView.isHidden = true
         emptyStateLabel.isHidden = true
     }
     
-    private func hideLoadingState() {
+    func hideLoadingState() {
         activityIndicator.stopAnimating()
         activityIndicator.isHidden = true
         tableView.isHidden = false
     }
     
-    private func showEmptyStateIfNeeded() {
+    func showEmptyStateIfNeeded() {
         emptyStateLabel.isHidden = !employees.isEmpty
         tableView.isHidden = true
     }
     
-    private func showErrorState(with message: String) {
+    func showErrorState(with message: String) {
         let alertController = UIAlertController(
             title: "Error",
             message: message,
@@ -98,7 +98,7 @@ class EmployeeDirectoryViewController: UIViewController {
         
         present(alertController, animated: true)
     }
-        
+    
     @objc func phoneButtonClicked(_ sender: AnyObject){
         guard let phoneNumber = employees[sender.tag].phoneNumber else {return}
         
